@@ -36,32 +36,6 @@ class KpiSerPlugin extends Singleton {
 			array("chartjs","moment","chartjs-moment","jquery"),"fixme",true);
 	}
 
-	private function initSeries() {
-		$this->seriesById=array();
-		$confs=apply_filters("kpi_series",array());
-		foreach ($confs as $conf) {
-			$series=new Series($conf);
-			$this->seriesById[$series->getId()]=$series;
-		}
-	}
-
-	public function getSeries() {
-		if ($this->seriesById===NULL)
-			$this->initSeries();
-
-		return array_values($this->seriesById);
-	}
-
-	public function getSeriesById($id) {
-		if ($this->seriesById===NULL)
-			$this->initSeries();
-
-		if (!array_key_exists($id,$this->seriesById))
-			return NULL;
-
-		return $this->seriesById[$id];
-	}
-
 	public function getEpoch() {
 		global $wpdb;
 		return $wpdb->get_var(
@@ -79,9 +53,8 @@ class KpiSerPlugin extends Singleton {
 		$tpl=new Template(__DIR__."/../tpl/admin-kpis.tpl.php");
 		$serSelectOptions=array();
 
-		foreach ($this->getSeries() as $series) {
+		foreach (Series::getSeries() as $series)
 			$serSelectOptions[$series->getId()]=$series->getTitle();
-		}
 
 		$m=array();
 		$epoch=strtotime($this->getEpoch());

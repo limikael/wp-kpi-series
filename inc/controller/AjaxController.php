@@ -10,7 +10,7 @@ class AjaxController extends AjaxHandler {
 	}
 
 	public function getSeriesData($p) {
-		$series=KpiSerPlugin::instance()->getSeriesById($p["series"]);
+		$series=Series::getSeriesById($p["series"]);
 		$firstDay=$p["month"]."-01";
 		$lastDay=date("Y-m-t",strtotime($firstDay));
 		$uptoDay=date("Y-m-t",strtotime($firstDay)+24*60*60);
