@@ -18,19 +18,4 @@ define('KPISER_PATH',plugin_dir_path(__FILE__));
 
 require_once(__DIR__."/inc/plugin/KpiSerPlugin.php");
 
-/*function tonopah_activate() {
-	tonopah\TonopahPlugin::instance()->activate();
-}
-register_activation_hook( __FILE__, 'tonopah_activate' );
-
-function tonopah_deactivate() {
-	tonopah\TonopahPlugin::instance()->deactivate();
-}
-register_deactivation_hook( __FILE__, 'tonopah_deactivate' );
-
-function tonopah_uninstall() {
-	tonopah\TonopahPlugin::instance()->uninstall();
-}
-register_uninstall_hook( __FILE__, 'tonopah_uninstall' );*/
-
 kpiser\KpiSerPlugin::instance();
