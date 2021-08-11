@@ -5,7 +5,7 @@
  * Plugin Name:       Kpi Series
  * Plugin URI:        https://github.com/limikael/wp-kpi-series
  * Description:       Visualize data series.
- * Version:           0.0.1
+ * Version:           0.0.2
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Mikael Lindqvist
